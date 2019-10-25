@@ -8,7 +8,7 @@ const char pass[] = "wow12345";
 WiFiClient client;
 
 unsigned long myTalkBackID = 35574;
-const char * myTalkBackKey = "ZTR1W8UQ1U6JIB";
+const char * myTalkBackKey = "ZTR1W8UQ1U6JIBP1";
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
@@ -28,10 +28,10 @@ void loop() {
      Serial.println("\nConnected.");
   }
   //Create Tallback URI
-  String tbURI = String("/talkbacks/") + String(myTalkBackID) +String("/commands/execute");
+  String tbURI = String("/talkbacks/") + String(myTalkBackID) + String("/commands/execute");
   
   // Create the message body for the POST out of the values
-  String postMessage =  String("apikey=") + String(myTalkBackKey);
+  String postMessage =  String("api_key=") + String(myTalkBackKey);
 
   //Make a string for any commands that might be in the queue
   String newCommand = String();
@@ -65,7 +65,7 @@ void loop() {
   Serial.println("proble checking queue. HTTP error code " + String(x));
  }
 
- delay(60000);
+ delay(6000);
 }
 
  //General function to POST to Thingspeak
